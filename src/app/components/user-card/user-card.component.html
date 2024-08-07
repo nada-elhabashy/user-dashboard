@@ -1,8 +1,15 @@
+
+
+
+<div *ngIf="loading$ | async" class="loading">Loading...
+</div>
+<div *ngIf="!(loading$ | async)">
+   <div *ngFor="let user of users" >
 <mat-card class="example-card" appearance="outlined">
 
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-   <mat-card-header>
-    <mat-card-title>Shiba Inu</mat-card-title>
+ <img [src]="user.avatar" alt="{{user.first_name}}">
+    <mat-card-header>
+    <mat-card-title>{{user.first_name}} {{user.last_name}}</mat-card-title>
   </mat-card-header>
 
   <mat-card-actions>
@@ -10,3 +17,5 @@
 
   </mat-card-actions>
 </mat-card>
+</div>
+</div>

@@ -17,7 +17,7 @@ export class UserService {
     const cachedData = this.cacheService.get(cacheKey);
 
     if (cachedData) {
-      return cachedData;
+      return of(cachedData);
     } else {
       return this.http
         .get<any>(`${this.baseUrl}/users?page=${page}`)
